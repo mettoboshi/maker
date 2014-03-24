@@ -1,0 +1,20 @@
+<tr>
+  <td class="id"><input type="text" name="id" value="" placeholder="ID"></td>
+  <td class="source">
+    <select name="source">
+      <option></option>
+      <% for(var j = 0; j < this.sources.length; j++) { %>
+      <option value="<%- this.sources[j].value %>"><%- this.sources[j].text %></option>
+      <% } %>
+    </select>
+  </td>
+  <td class="destination">
+    <select name="destination">
+      <option></option>
+      <% for(var j = 0; j < this.destinations.length; j++) { %>
+      <option value="<%- this.destinations[j].value %>"><%- this.destinations[j].text %></option>
+      <% } %>
+    </select>
+  </td>
+  <td class="delete" rowspan="1"></td>
+</tr>

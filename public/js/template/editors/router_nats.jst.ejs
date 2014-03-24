@@ -1,0 +1,45 @@
+<div class="scrollable">
+  <table class="table table-bordered index-table table-condensed">
+    <thead>
+      <tr>
+        <th class="id">ID</th>
+        <th class="source">Source</th>
+        <th class="destination">Destination</th>
+        <th class="delete">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%
+        var nats = get('nats');
+        for(var i = 0; i < nats.length; i++) {
+          var nat = nats[i];
+      %>
+      <tr>
+        <td class="id"><input type="text" name="id" value="<%- nat.id %>" placeholder="ID"></td>
+        <td class="source">
+          <select name="source">
+            <option></option>
+            <% for(var j = 0; j < this.sources.length; j++) { %>
+            <option value="<%- this.sources[j].value %>"><%- this.sources[j].text %></option>
+            <% } %>
+          </select>
+        </td>
+        <td class="destination">
+          <select name="destination">
+            <option></option>
+            <% for(var j = 0; j < this.destinations.length; j++) { %>
+            <option value="<%- this.destinations[j].value %>"><%- this.destinations[j].text %></option>
+            <% } %>
+          </select>
+        </td>
+        <td class="delete"><span class="button glyphicon glyphicon-remove"></span></td>
+      </tr>
+      <% } %>
+
+      <% if(!this.options.readonly) { %>
+      <%= this.partial('editors/_router_nats_new') %>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+

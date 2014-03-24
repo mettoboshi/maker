@@ -1,0 +1,521 @@
+.editor {
+  .button {
+    background: #fcfcfc; /* Old browsers */
+    background: -moz-linear-gradient(top,  #fcfcfc 0%, #ebebeb 50%, #dddddd 50%, #cfcfcf 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfcfc), color-stop(50%,#ebebeb), color-stop(50%,#dddddd), color-stop(100%,#cfcfcf)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #fcfcfc 0%,#ebebeb 50%,#dddddd 50%,#cfcfcf 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #fcfcfc 0%,#ebebeb 50%,#dddddd 50%,#cfcfcf 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #fcfcfc 0%,#ebebeb 50%,#dddddd 50%,#cfcfcf 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #fcfcfc 0%,#ebebeb 50%,#dddddd 50%,#cfcfcf 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#cfcfcf',GradientType=0 ); /* IE6-9 */
+
+    border: solid 1px #707070;
+    border-radius: 3px;
+    cursor: pointer;
+
+    /* ボタンをダブルクリックした際のテキスト選択を不可に設定 */
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+
+  .button:hover {
+    background: #fafdfe; /* Old browsers */
+    background: -moz-linear-gradient(top,  #fafdfe 0%, #d9f0fc 50%, #bee6fd 50%, #a7d9f5 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fafdfe), color-stop(50%,#d9f0fc), color-stop(50%,#bee6fd), color-stop(100%,#a7d9f5)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #fafdfe 0%,#d9f0fc 50%,#bee6fd 50%,#a7d9f5 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #fafdfe 0%,#d9f0fc 50%,#bee6fd 50%,#a7d9f5 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #fafdfe 0%,#d9f0fc 50%,#bee6fd 50%,#a7d9f5 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #fafdfe 0%,#d9f0fc 50%,#bee6fd 50%,#a7d9f5 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafdfe', endColorstr='#a7d9f5',GradientType=0 ); /* IE6-9 */
+
+    border: solid 1px #3c7fb1;
+  }
+
+  .button:active {
+    background: #e5f4fc; /* Old browsers */
+    background: -moz-linear-gradient(top,  #e5f4fc 0%, #c4e5f6 50%, #98d1ef 50%, #68b3db 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e5f4fc), color-stop(50%,#c4e5f6), color-stop(50%,#98d1ef), color-stop(100%,#68b3db)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #e5f4fc 0%,#c4e5f6 50%,#98d1ef 50%,#68b3db 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #e5f4fc 0%,#c4e5f6 50%,#98d1ef 50%,#68b3db 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #e5f4fc 0%,#c4e5f6 50%,#98d1ef 50%,#68b3db 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #e5f4fc 0%,#c4e5f6 50%,#98d1ef 50%,#68b3db 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5f4fc', endColorstr='#68b3db',GradientType=0 ); /* IE6-9 */
+
+    border: solid 1px #2c628b;
+  }
+
+  .button {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+    margin: 1px;
+    padding: 7px;
+  }
+
+  .button.concave {
+    background: #9cf;
+    border: solid 1px #707070;
+    color: #2c32cb;
+  }
+
+  .button.convex {
+  }
+
+  .button.disable {
+    background: #999;
+    border: solid 1px #707070;
+    cursor: default;
+  }
+
+  .component {
+    overflow: hidden;
+  }
+
+  svg {
+    position: absolute;
+  }
+
+  .header {
+    background-color: #eee;
+    border-bottom: solid 1px #666;
+
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 40px;
+
+    padding: 3px;
+
+    ul {
+      float: left;
+      margin-right: 10px;
+      > li {
+        float: left;
+      }
+    }
+
+    ul.right {
+      float: right;
+    }
+  }
+
+  .main {
+    position: absolute;
+    left: 0px;
+    top: 40px;
+    bottom: 20px;
+    width: 100%;
+    height: auto;
+  }
+
+  .footer {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 20px;
+
+    background-color: #eee;
+    border-top: solid 1px #666;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .toolbox {
+    padding: 0px;
+
+    li.button {
+      float: left;
+    }
+  }
+
+  .middlewares {
+    table {
+      thead {
+        .type { width: 100px; }
+        .id{ width: 100px; }
+        .name { width: 100px; }
+        .delete { width: 30px; vertical-align: middle; }
+      }
+      tbody {
+        tr:nth-child(4n+1), tr:nth-child(4n+2) {
+          background-color: #dee0ff;
+        }
+        .delete {
+          text-align: center;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    input, select {
+      width: 100%;
+    }
+  }
+
+  .roles {
+    table {
+      thead {
+        .type { width: 100px; }
+        .id{ width: 100px; }
+        .name { width: 100px; }
+        .runlist-url { width: 100px; }
+        .dependencies { width: 30px; vertical-align: middle; }
+        .user-input-keys { width: 30px; vertical-align: middle; }
+        .delete { width: 30px; vertical-align: middle; }
+      }
+      tbody {
+        tr:nth-child(4n+1), tr:nth-child(4n+2) {
+          background-color: #dee0ff;
+        }
+        .dependencies {
+          text-align: center;
+          vertical-align: middle;
+        }
+
+        .user-input-keys {
+          text-align: center;
+          vertical-align: middle;
+        }
+
+        .delete {
+          text-align: center;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    input, select {
+      width: 100%;
+    }
+  }
+
+  .dependencies {
+    table {
+      thead {
+        .middleware { width: 100px; }
+        .delete { width: 30px; vertical-align: middle; }
+      }
+      tbody {
+        tr:nth-child(odd) {
+          background-color: #dee0ff;
+        }
+        .delete {
+          text-align: center;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    select {
+      width: 100%;
+    }
+  }
+
+  .user-input-keys {
+    table {
+      thead {
+        .key { width: 100px; }
+        .delete { width: 30px; vertical-align: middle; }
+      }
+      tbody {
+        tr:nth-child(odd) {
+          background-color: #dee0ff;
+        }
+        .delete {
+          text-align: center;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    input {
+      width: 100%;
+    }
+  }
+
+  .parameters {
+    table {
+      thead {
+        .key { width: 100px; }
+        .value{ width: 100px; }
+        .delete { width: 30px; }
+      }
+      tbody {
+        .delete {
+          padding: 0px 5px;
+          text-align: center;
+        }
+      }
+    }
+
+    input {
+      width: 100%;
+    }
+  }
+
+  .property {
+    label {
+      width: 130px;
+      text-align: right;
+    }
+
+    input[type='input'] {
+      width: 200px;
+    }
+  }
+
+  .network-filters, .machine-filters {
+    table {
+      thead {
+        .id { width: 100px; }
+        .protocol{ width: 100px; }
+        .port { width: 100px; }
+        .delete { width: 30px; vertical-align: middle; }
+      }
+      tbody {
+        .id {
+          .stretchable {
+            width: 100%;
+            float: left;
+          }
+          .content {
+            margin-right: 37px;
+          }
+
+          .button {
+            margin: 0px 0px 0px -31px;
+          }
+        }
+        tr:nth-child(4n+1), tr:nth-child(4n+2) {
+          background-color: #dee0ff;
+        }
+        .delete {
+          text-align: center;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    input, select {
+      width: 100%;
+    }
+  }
+
+  .routing {
+    table {
+      thead {
+        .id { width: 100px; }
+        .destination{ width: 100px; }
+        .target { width: 100px; }
+        .delete { width: 30px; vertical-align: middle; }
+      }
+      tbody {
+        tr:nth-child(odd) {
+          background-color: #dee0ff;
+        }
+        .delete {
+          text-align: center;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    input, select {
+      width: 100%;
+    }
+  }
+
+  .router-nats {
+    table {
+      thead {
+        .id { width: 100px; }
+        .source{ width: 100px; }
+        .destination { width: 100px; }
+        .delete { width: 30px; vertical-align: middle; }
+      }
+      tbody {
+        tr:nth-child(odd) {
+          background-color: #dee0ff;
+        }
+        .delete {
+          text-align: center;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    input, select {
+      width: 100%;
+    }
+  }
+
+  .save-dialog {
+    input[name='repository'] {
+      width: 100px;
+    }
+  }
+
+  .monitorings {
+    table {
+      thead {
+        .id { width: 100px; }
+        .delete { width: 30px; vertical-align: middle; }
+      }
+      tbody {
+        tr:nth-child(odd) {
+          background-color: #dee0ff;
+        }
+        .delete {
+          text-align: center;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    select {
+      width: 100%;
+    }
+  }
+
+  .monitoring_templates {
+    table {
+      thead {
+        .id { width: 100px; }
+        .name { width: 100px; }
+        .url { width: 100px; }
+        .type { width: 50px; }
+        .delete { width: 30px; vertical-align: middle; }
+      }
+      tbody {
+        tr:nth-child(odd) {
+          background-color: #dee0ff;
+        }
+        .delete {
+          text-align: center;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    input, select {
+      width: 100%;
+    }
+  }
+
+  .ui-dialog {
+    .ui-dialog-titlebar {
+      padding: 0em 0.2em;
+      height: 20px;
+      span.ui-dialog-title {
+        margin: 0px;
+        font-size: 90%;
+      }
+
+      button {
+        right: 0.1em;
+        margin: -10px 0 0 0;
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+
+  .cover {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.4;
+    position: absolute;
+    z-index: 200;
+  }
+
+  .detail {
+    th {
+      text-align: right;
+      padding-right: 5px;
+    }
+
+    input[type='input'] {
+      width: 200px;
+    }
+
+    input[type='range'] {
+      width: 200px;
+    }
+
+    table {
+      input[type='text'], select {
+        width: 100%;
+      }
+    }
+  }
+
+  .scrollable {
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    overflow-y: scroll;
+  }
+
+  .xml-viewer {
+    padding: 0px;
+
+    pre {
+      overflow-y: scroll;
+      width: auto;
+      height: auto;
+      top: 3px;
+      bottom: 1px;
+      right: 1px;
+      left: 1px;
+      position: absolute;
+      margin: 0px;
+      padding: 4px;
+    }
+  }
+
+  .selectArea {
+    cursor: default;
+  }
+}
+
+
+.editor-with-header {
+  position: absoltue;
+  top: 80px;
+
+  .header {
+    top: 80px;
+  }
+
+  .main {
+    top: 120px;
+    bottom: 20px;
+  }
+}
+
+
+/* 読み取り専用で表示する場合はJointJS側の挙動を一部制限する */
+.readonly {
+  g, path {
+    cursor: default !important;
+  }
+  .magnet:hover {
+    opacity: 1;
+  }
+
+  .link:hover .marker-vertices,
+  .link:hover .marker-arrowheads,
+  .link:hover .link-tools,
+  .link:hover .connection-wrap {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,105 @@
+<div class="scrollable">
+  <table>
+    <tbody>
+      <tr>
+        <th><label for="machine_id">Machine ID: </label></th>
+        <td><input type="input" id="machine_id" value="<%- machine_id %>"></td>
+      </tr>
+      <tr>
+        <th><label for="machine_name">Machine Name: </label></th>
+        <td><input type="input" id="machine_name" value="<%- machine_name %>"></td>
+      </tr>
+      <tr>
+        <th><label for="machine_group_id">Machine Group ID: </label></th>
+        <td><input type="input" id="machine_group_id" value="<%- machine_group_id %>"></td>
+      </tr>
+      <tr>
+        <th><label for="machine_group_name">Machine Group Name: </label></th>
+        <td><input type="input" id="machine_group_name" value="<%- machine_group_name %>"></td>
+      </tr>
+      <tr>
+        <th><label for="spec_type">Spec Type: </label></th>
+        <td>
+          <select id="spec_type">
+            <option><%- joint.shapes.cc.MachineGroup.SpecType.large %></option>
+            <option><%- joint.shapes.cc.MachineGroup.SpecType.medium %></option>
+            <option><%- joint.shapes.cc.MachineGroup.SpecType.small %></option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <th><label for="os_type">OS Type: </label></th>
+        <td><input type="input" id="os_type" value="<%- os_type %>"></td>
+      </tr>
+      <tr>
+        <th><label for="os_version">OS Version: </label></th>
+        <td><input type="input" id="os_version" value="<%- os_version %>"></td>
+      </tr>
+      <tr>
+        <th><label for="nodeType">NodeType: </label></th>
+        <td>
+          <select id="nodeType">
+            <option><%- joint.shapes.cc.MachineGroup.NodeType.single %></option>
+            <option><%- joint.shapes.cc.MachineGroup.NodeType.ha %></option>
+            <option><%- joint.shapes.cc.MachineGroup.NodeType.cluster %></option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <th><label for="machine_filters">Machine Filters: </label></th>
+        <td><span id="machine_filters" class="button glyphicon glyphicon-fire"></span></td>
+      </tr>
+        <%
+        if(volumes) {
+          for(var i = 0; i < volumes.length; i++) {
+        %>
+        <tr>
+          <th><label for="<%- volumes[i].volume.get('volume_id') %>"><%- volumes[i].volume.get('volume_id') %> / <br>Mount Point: </label></th>
+          <td class="mount-point" data-id="<%- i %>"><input type="input" id="<%- volumes[i].volume.get('volume_id') %>" value="<%- volumes[i].mount_point %>"></td>
+        </tr>
+        <%
+          }
+        }
+        %>
+      <tr>
+        <th><label for="monitorings">Monitorings: </label></th>
+        <td><span id="monitorings" class="button glyphicon glyphicon-facetime-video"></span></td>
+      </tr>
+      <tr>
+        <th><label for="floating_ip_id">FloatingIP ID: </label></th>
+        <td><input type="input" id="floating_ip_id" value="<%- floating_ip_id %>"></td>
+      </tr>
+      <tr>
+        <th><label for="floating_ip_name">FloatingIP Name: </label></th>
+        <td><input type="input" id="floating_ip_name" value="<%- floating_ip_name %>"></td>
+      </tr>
+      <tr>
+        <th><label for="role">Role: </label></th>
+        <td>
+          <select id="role">
+            <option></option>
+            <%
+            var roles;
+            if(type === 'cc.MonitorMachineGroup') {
+            roles = _.filter(editor.graph.get("roles"), function(role) { return role.id.match(/zabbix/); });
+            } else {
+            roles = _.filter(editor.graph.get("roles"), function(role) { return role.id.match(/^((?!zabbix).)*$/); });
+            }
+            for(var j = 0; j < roles.length; j++) {
+            %>
+            <option value="<%- roles[j].id %>"><%- roles[j].name %></option>
+            <% } %>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <th><label for="attribute_file">Attribute File: </label></th>
+        <td><input type="input" id="attribute_file" value="<%- attribute_file %>"></td>
+      </tr>
+      <tr>
+        <th><label for="user_input_keys">User Input Keys: </label></th>
+        <td><span id="user_input_keys" class="button glyphicon glyphicon-edit"></span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

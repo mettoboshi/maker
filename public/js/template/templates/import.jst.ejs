@@ -1,0 +1,31 @@
+<div class="container">
+  <%
+    var breadcrumb = [];
+    breadcrumb.push({ url: "#templates", label: i18n.t("template.index.template_list")});
+    breadcrumb.push({ url: "#templates/import", label: i18n.t("template.import.import_template")});
+  %>
+  <%= this.partial('common/menu', { breadcrumb: breadcrumb })%>
+  <h2 id="tables-hover-rows" data-i18n="template.import.import_template">テンプレートインポート</h2>
+  <%= this.partial('common/error') %>
+  <table class="table table-hover">
+    <tbody>
+      <tr>
+        <td data-i18n="template.import.repository">リポジトリ</td>
+        <td><input class="form-control" type="text" id="repository" autofocus></td>
+      </tr>
+      <tr>
+        <td data-i18n="template.import.revision">リビジョン</td>
+        <td><input class="form-control" type="text" id="revision"></td>
+      </tr>
+      <tr>
+        <td data-i18n="template.import.path">パス</td>
+        <td><input class="form-control" type="text" id="path"></td>
+      </tr>
+    </tbody>
+  </table>
+  <p align="right">
+    <a id="import" class="btn btn-primary" data-i18n="common.button.import">インポート</a>
+    <a class="btn btn-default" href="#templates" data-i18n="common.button.back">戻る</a>
+  </p>
+  <%= this.partial('common/footer')%>
+</div>

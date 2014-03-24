@@ -1,0 +1,17 @@
+AllCops:
+  Excludes:
+    - db/schema.rb
+    - public/js/ext/**
+    - node_modules/**
+
+LineLength:
+  Max: 130
+
+MethodLength:
+  Max: 20
+
+AsciiComments:
+  Enabled: false
+
+Documentation:
+  Enabled: false

@@ -1,0 +1,9 @@
+<%
+  var breadcrumb = [];
+  breadcrumb.push({ url: "#templates", label: i18n.t("template.index.template_list")});
+  breadcrumb.push({ url: "#templates/" + id, label: name});
+%>
+<%= this.partial('common/menu', { breadcrumb: breadcrumb })%>
+<%= this.partial('common/error') %>
+<div class="editor editor-with-header">
+</div>

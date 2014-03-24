@@ -1,0 +1,4 @@
+[submodule "vendor/guard-jasmine-phantomjs/vendor/jasmine-reporters"]
+	path = vendor/guard-jasmine-phantomjs/vendor/jasmine-reporters
+	url = https://github.com/Sheile/jasmine-reporters.git
+	branch = pretty-output

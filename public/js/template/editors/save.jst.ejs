@@ -1,0 +1,39 @@
+<div class="scrollable">
+  <div>
+    <label for="adapter">Target: </label>
+    <select name="adapter" disabled="disabled">
+      <option>github</option>
+    </select>
+  </div>
+  <div>
+    <label for="repository">Repository: </label>
+    <select name="owner">
+      <%
+      for(var i = 0; i < collection.length; i++) {
+        if(collection.models[i]) {
+      %>
+      <option value="<%- collection.models[i].get('name') %>" data-type="organization"><%- collection.models[i].get('name') %></option>
+      <%
+        }
+      }
+      %>
+    </select>/
+    <input type="input" name="repository" value="<%- model.get('repository') %>">
+  </div>
+  <div>
+    <label for="revision">Revision: </label>
+    <input type="input" name="revision" value="<%- model.get('revision') %>">
+  </div>
+  <div>
+    <label for="path">Path: </label>
+    <input type="input" name="path" value="<%- model.get('path') %>">
+  </div>
+  <div>
+    <label for="commit_message">CommitMessage: </label>
+    <input type="input" name="commit_message" value="">
+  </div>
+  <div>
+    <span class="btn btn-primary btn-sm save" tabIndex="0"><%- i18n.t("common.button.save") %></span>
+    <span class="btn btn-default btn-sm cancel" tabIndex="0"><%- i18n.t("common.button.cancel") %></span>
+  </div>
+</div>

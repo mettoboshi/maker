@@ -1,0 +1,11 @@
+<tr>
+  <td class="middleware">
+    <select name="middleware">
+      <option></option>
+      <% for(var j = 0; j < this.middlewares.length; j++) { %>
+      <option value="<%- this.middlewares[j].id %>"><%- this.middlewares[j].name %></option>
+      <% } %>
+    </select>
+  </td>
+  <td class="delete"></td>
+</tr>

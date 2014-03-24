@@ -1,0 +1,110 @@
+{
+  "common": {
+    "navigation": {
+      "template": "テンプレート",
+      "login": "ログイン",
+      "logout": "ログアウト"
+    },
+    "button": {
+      "view": "表示",
+      "new": "新規作成",
+      "edit": "編集",
+      "save": "保存",
+      "cancel": "キャンセル",
+      "back": "戻る"
+    },
+    "header": {
+      "import": "インポート",
+      "save": "保存",
+      "undo": "元に戻す",
+      "redo": "やり直す",
+      "top": "最前面へ",
+      "front": "前面へ",
+      "rear": "背面へ",
+      "bottom": "最背面へ",
+      "zoom_in": "拡大",
+      "zoom_out": "縮小",
+      "toolbox": "ツールボックス",
+      "detail": "詳細",
+      "xml_viewer": "XML",
+      "parameter": "パラメータ",
+      "select_cloud_entry_point": "クラウドエントリーポイント選択",
+      "middlewares": "ミドルウェア",
+      "roles": "ロール",
+      "property": "プロパティ",
+      "help": "ヘルプ"
+    },
+    "dialog": {
+      "not_selected": "要素が選択されていません",
+      "selected_multiple_elements": "複数の要素を選択している時は編集できません",
+      "toolbox": "ツールボックス",
+      "detail": "詳細",
+      "xml_viewer": "XML",
+      "parameter": "パラメータ",
+      "select_cloud_entry_point": "クラウドエントリーポイント選択",
+      "middlewares": "ミドルウェア",
+      "roles": "ロール",
+      "property": "プロパティ",
+      "dependencies": "ミドルウェア選択",
+      "user_input_keys": "ユーザインプットキー",
+      "network_filters": "ネットワークフィルタ",
+      "network_routes": "ネットワークルーツ",
+      "machine_filters": "マシンフィルタ",
+      "monitorings": "監視情報",
+      "monitoring_templates": "監視テンプレート",
+      "routing_table": "ルーティングテーブル",
+      "nats": "NAT設定",
+      "save_template": "テンプレート保存"
+    }
+  },
+  "main": {
+    "index": {
+      "title": "テンプレートメーカー",
+      "subtitle_1": "テンプレートメーカーは、CloudConductorでプロビジョニング可能なシステム構成パターンを作成・管理する機能を提供します。",
+      "subtitle_2": "CloudConductorと連携することで、目的に合わせた最適な環境を簡単に構築することが可能になります。",
+      "template_list": "テンプレート一覧",
+      "template_description": "システムの構成定義ファイルの作成、更新、参照、削除が可能です。"
+    }
+  },
+  "template": {
+    "index": {
+      "template_list": "テンプレート一覧",
+      "id": "ID",
+      "template_name": "テンプレート名",
+      "owner_name": "オーナー名",
+      "description": "説明"
+    },
+    "show": "",
+    "new": {
+      "new_template": "テンプレート新規作成"
+    },
+    "edit": {
+      "edit_template": "テンプレート編集"
+    },
+    "toolbox": {
+      "cursor": "カーソル",
+      "add_infrastructure": "インフラストラクチャー追加",
+      "add_link": "リンク追加",
+      "add_network": "ネットワーク追加",
+      "add_machine_group": "マシングループ追加",
+      "add_volume": "ボリューム追加",
+      "add_monitor_machine_group": "モニターマシングループ追加",
+      "add_router": "ルーター追加"
+    },
+    "validate": {
+      "adapter": {
+        "required": "Adapterを入力して下さい。"
+      },
+      "repository": {
+        "required": "Repositoryを入力して下さい。"
+      },
+      "revision": {
+        "required": "Revisionを入力して下さい。"
+      },
+      "path": {
+        "required": "Pathを入力して下さい。",
+        "pattern": "Pathは「*.xml」形式で入力して下さい。"
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+@charset "UTF-8";
+/* bootstrap.cssの中で全称セレクタに対してbox-sizingを指定しているがResizableなjQuery UI Dialogと競合するので修正 */
+/* line 2, ../scss/bootstrap.patch.scss */
+.ui-dialog, .ui-dialog * {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+/* bootstrap.cssの中では「\1f4ce」のように文字コードを指定しているがChromeで表示できないため */
+/* line 9, ../scss/bootstrap.patch.scss */
+.glyphicon-bell:before {
+  content: "\d83d\dd14";
+}
+
+/* line 12, ../scss/bootstrap.patch.scss */
+.glyphicon-bookmark:before {
+  content: "\d83d\dd16";
+}
+
+/* line 15, ../scss/bootstrap.patch.scss */
+.glyphicon-briefcase:before {
+  content: "\d83d\dcbc";
+}
+
+/* line 18, ../scss/bootstrap.patch.scss */
+.glyphicon-calendar:before {
+  content: "\d83d\dcc5";
+}
+
+/* line 21, ../scss/bootstrap.patch.scss */
+.glyphicon-camera:before {
+  content: "\d83d\dcf7";
+}
+
+/* line 24, ../scss/bootstrap.patch.scss */
+.glyphicon-fire:before {
+  content: "\d83d\dd25";
+}
+
+/* line 27, ../scss/bootstrap.patch.scss */
+.glyphicon-lock:before {
+  content: "\d83d\dd12";
+}
+
+/* line 30, ../scss/bootstrap.patch.scss */
+.glyphicon-paperclip:before {
+  content: "\d83d\dcce";
+}
+
+/* line 33, ../scss/bootstrap.patch.scss */
+.glyphicon-pushpin:before {
+  content: "\d83d\dccc";
+}
+
+/* line 36, ../scss/bootstrap.patch.scss */
+.glyphicon-wrench:before {
+  content: "\d83d\dd27";
+}

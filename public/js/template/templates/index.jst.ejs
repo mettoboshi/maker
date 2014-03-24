@@ -1,0 +1,54 @@
+<div class="container">
+  <%
+    var breadcrumb = [];
+    breadcrumb.push({ url: "#templates", label: i18n.t("template.index.template_list")});
+  %>
+  <%= this.partial('common/menu', { breadcrumb: breadcrumb })%>
+  <h2 data-i18n="template.index.template_list">テンプレート一覧</h2>
+  <%= this.partial('common/error') %>
+  <div class="responsive">
+    <table class="table table-hover table-bordered index-table" id="template_items">
+      <thead>
+        <tr>
+          <th class="item-id" data-i18n="template.index.id">ID</th>
+          <th class="item-name" data-i18n="template.index.template_name">テンプレート名</th>
+          <th class="item-owner" data-i18n="template.index.owner_name">オーナー名</th>
+          <th class="item-description" data-i18n="template.index.description">説明</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+  <div align="center">
+    <ul class="pagination">
+      <% if(currentPage > firstPage) { %>
+        <li><a class="prevPage" href="#">&laquo;</a></li>
+      <% } else { %>
+        <li class="disabled"><a>&laquo;</a></li>
+      <% } %>
+      <%
+        var first = Math.max(Math.min(currentPage - 2, totalPages - 4), 1);
+        var last = Math.min(first + 4, totalPages);
+
+        for(var i = first; i <= last; i++) {
+          var cls = (i == currentPage) ? "active" : "";
+      %>
+      <li class="<%= cls %>"><a class="goTo" href="#"><%= i %></a></li>
+      <%
+        }
+      %>
+      <% if(currentPage < totalPages) { %>
+        <li><a class="nextPage" href="#">&raquo;</a></li>
+      <% } else { %>
+        <li class="disabled"><a>&raquo;</a></li>
+      <% } %>
+    </ul>
+  </div>
+  <div class="row">
+    <p align="right">
+      <a class="btn btn-primary" href="#templates/new" data-i18n="common.button.new">新規作成</a>
+    </p>
+  </div>
+  <%= this.partial('common/footer')%>
+</div>

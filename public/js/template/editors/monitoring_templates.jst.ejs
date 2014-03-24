@@ -1,0 +1,36 @@
+<div class="scrollable">
+  <table class="table table-bordered index-table table-condensed">
+    <thead>
+      <tr>
+        <th class="id">ID</th>
+        <th class="name">Name</th>
+        <th class="url">URL</th>
+        <th class="type">Type</th>
+        <th class="delete">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%
+        var monitoring_templates = get('monitoring_templates');
+        for(var i = 0; i < monitoring_templates.length; i++) {
+          var monitoring = monitoring_templates[i];
+      %>
+      <tr>
+        <td class="id"><input type="text" name="id" value="<%- monitoring.id %>" placeholder="ID"></td>
+        <td class="name"><input type="text" name="name" value="<%- monitoring.name %>" placeholder="Name"></td>
+        <td class="url"><input type="text" name="url" value="<%- monitoring.url %>" placeholder="URL"></td>
+        <td class="type">
+          <select name="type">
+            <option><%- App.Components.MonitoringTemplates.Type.zabbix %></option>
+          </select>
+        </td>
+        <td class="delete"><span class="button glyphicon glyphicon-remove"></span></td>
+      </tr>
+      <% } %>
+
+      <% if(!this.options.readonly) { %>
+      <%= this.partial('editors/_monitoring_templates_new') %>
+      <% } %>
+    </tbody>
+  </table>
+</div>

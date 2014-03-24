@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link type="text/css" rel="stylesheet" href="<%= url_prefix %>/vendor/jasmine/lib/jasmine-1.3.1/jasmine.css"></script>
+<% stylesheet_files.each do |file| %>
+<link type="text/css" rel="stylesheet" href="<%= file %>"></script>
+<% end %>
+
+<script type="text/javascript" src="<%= url_prefix %>/vendor/jquery/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="<%= url_prefix %>/vendor/underscore/underscore-min.js"></script>
+<script type="text/javascript" src="<%= url_prefix %>/vendor/jasmine/lib/jasmine-1.3.1/jasmine.js"></script>
+<script type="text/javascript" src="<%= url_prefix %>/vendor/jasmine/lib/jasmine-1.3.1/jasmine-html.js"></script>
+<script type="text/javascript" src="<%= url_prefix %>/vendor/sinon/sinon-1.7.3.js"></script>
+
+<!-- Source files -->
+<% javascript_files.each do |file| %>
+<script type="text/javascript" src="<%= file %>"></script>
+<% end %>
+
+<script type="text/javascript">
+(function() {
+  //  テスト中はconsole.log, console.debug以外の出力を抑制する
+  console.info = function() {}
+  console.warn = function() {}
+  console.error = function() {}
+
+  //  オブジェクトのログ出力をある程度できるように変更
+  console.log = _.wrap(console.log, function(func) {
+    var args = Array.prototype.slice.apply(arguments, [1]);
+    _.each(args, function(arg) {
+      if(_.isUndefined(arg)) {
+        func.apply(console, ["undefined"]);
+      } else if(arg === null)  {
+        func.apply(console, ["null"]);
+      } else if(arg.toString() === "[object Object]") {
+        try {
+          func.apply(console, [JSON.stringify(arg)]);
+        } catch(e) {
+          func.apply(console, ["[Error]: can't output cyclic structures by console.log"]);
+        }
+      } else {
+        func.apply(console, [arg]);
+      }
+    });
+  });
+})();
+</script>
+
+<script type="text/javascript">
+(function() {
+  $(function() {
+    i18n.init({ debug: false, useCookie: false, fallbackLng: 'en' }, function() {
+      executeJasmine();
+    });
+  });
+
+  function executeJasmine() {
+    var jasmineEnv = jasmine.getEnv();
+    jasmineEnv.updateInterval = 1000;
+
+    var params = parseQueryString(location.search.substr(1));
+
+    var src, addReporter;
+    if(params['reporter'] == 'junit') {
+      src = "<%= url_prefix %>/vendor/jasmine-reporters/src/jasmine.junit_reporter.js";
+      addReporter = function() {
+        jasmineEnv.addReporter(new jasmine.JUnitXmlReporter());
+      }
+    } else {
+      src = "<%= url_prefix %>/vendor/jasmine-reporters/src/jasmine.terminal_reporter.js";
+      addReporter = function() {
+        jasmineEnv.addReporter(new jasmine.TerminalReporter({
+          verbosity: 2,
+          color: true
+        }));
+      }
+    }
+
+    jasmineEnv.reporter.reportSpecStarting = _.wrap(jasmineEnv.reporter.reportSpecStarting, function(original) {
+      //  他のテストが影響を与えないように__container以下をクリア
+      $(".__container").empty();
+
+      arguments = Array.prototype.slice.apply(arguments, [1]);
+      return original.apply(this, arguments);
+    });
+
+    $.getScript(src, function() {
+      addReporter();
+
+      var trivialReporter = new jasmine.TrivialReporter();
+      jasmineEnv.addReporter(trivialReporter);
+
+      jasmineEnv.specFilter = function(spec) {
+        return trivialReporter.specFilter(spec);
+      };
+
+      _.wrap(window.onload, function(onload) {
+        if(onload) onload();
+        jasmineEnv.execute();
+      })();
+    });
+  }
+
+  function parseQueryString(query)
+  {
+    return _.reduce(query.split('&'), function(params, param) {
+      var pair = param.split('=');
+      var hash = {}
+      hash[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+
+      return _.extend(params, hash);
+    }, {});
+  }
+})();
+</script>
+</head>
+<body>
+<div class="__container">
+</div>
+</body>
+</html>

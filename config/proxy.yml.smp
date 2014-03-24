@@ -1,0 +1,5 @@
+development:
+  host: [CHANGE TO PROXY HOST]
+  port: 8080
+  user: [CHANGE TO PROXY USER]
+  password: [CHANGE TO PROXY PASSWORD]

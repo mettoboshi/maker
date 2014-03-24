@@ -1,0 +1,110 @@
+@charset "UTF-8";
+/* line 1, ../scss/main.scss */
+body {
+  padding-top: 80px;
+}
+
+/* line 5, ../scss/main.scss */
+.navbar-logo {
+  height: 50px;
+}
+
+/* line 9, ../scss/main.scss */
+.navbar-top {
+  height: 50px;
+  box-sizing: content-box;
+}
+/* line 12, ../scss/main.scss */
+.navbar-top .top-button {
+  margin: 8px 8px 8px 0px;
+}
+
+/* line 17, ../scss/main.scss */
+.navbar-bottom {
+  height: 30px;
+}
+/* line 19, ../scss/main.scss */
+.navbar-bottom ol {
+  line-height: 30px;
+  padding: 0px 15px;
+  margin: 0px;
+  height: 30px;
+  overflow: hidden;
+}
+
+/* line 28, ../scss/main.scss */
+.navbar-login-text {
+  float: left;
+  color: white;
+  padding: 12px;
+}
+
+/* line 34, ../scss/main.scss */
+.navbar-login-avatar {
+  float: left;
+  width: 32px;
+  height: 32px;
+  position: relative;
+  top: 8px;
+}
+
+/* line 42, ../scss/main.scss */
+.main-title {
+  padding-right: 15px !important;
+  padding-left: 15px !important;
+  font-size: 18px;
+}
+
+/* line 48, ../scss/main.scss */
+table {
+  table-layout: fixed;
+}
+
+/* line 52, ../scss/main.scss */
+.item-id {
+  width: 50px;
+}
+
+/* line 56, ../scss/main.scss */
+.item-checkbox {
+  width: 50px;
+}
+
+/* line 60, ../scss/main.scss */
+.item-name {
+  width: 20%;
+}
+
+/* line 64, ../scss/main.scss */
+.item-owner {
+  width: 20%;
+}
+
+/* line 68, ../scss/main.scss */
+.item-description {
+  width: 60%;
+}
+
+/* line 72, ../scss/main.scss */
+.table-inner-btn {
+  width: 120px !important;
+}
+/* line 74, ../scss/main.scss */
+.table-inner-btn a {
+  margin-top: 2px;
+}
+
+/* line 79, ../scss/main.scss */
+.text-over {
+  width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+}
+
+/* Marginの重複が発生するため微調整 */
+/* line 88, ../scss/main.scss */
+ul.pagination {
+  margin-top: 0px;
+}

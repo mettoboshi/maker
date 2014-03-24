@@ -1,0 +1,53 @@
+<div class="navbar navbar-fixed-top">
+  <%
+    var templateClass = "";
+    if(breadcrumb && breadcrumb[0].url === '#templates') {
+      templateClass = "active";
+    }
+  %>
+  <div class="navbar-header navbar-inverse navbar-logo">
+    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-top">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="logo" href="#main"><img src="./img/logo.png"></a>
+  </div>
+
+  <div class="navbar-top navbar-inverse navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+      <li class="<%- templateClass %>"><a href="#templates" data-i18n="common.navigation.template">Template</a></li>
+    </ul>
+
+    <% if(App.Session.isLogin()) { %>
+      <div class="navbar-right">
+        <img class="navbar-login-avatar" src="<%- App.Session.currentUser.get('avatar_url') %>">
+        <span class="navbar-login-text"><%- App.Session.currentUser.get('login') %></span>
+        <a id="logout" class="btn btn-danger btn-sm navbar-right top-button" href="#logout" data-i18n="common.navigation.logout">Logout</a>
+      </div>
+    <% } else { %>
+      <a id="login" class="btn btn-default btn-sm navbar-right top-button" href="#login" data-i18n="common.navigation.login">Login</a>
+    <% } %>
+
+  </div>
+
+  <% if(breadcrumb) { %>
+  <div class="navbar-bottom">
+    <ol class="breadcrumb">
+      <% for(var i = 0; i < breadcrumb.length; i++) { %>
+      <li class="<%= i === breadcrumb.length - 1 ? 'active' : '' %>">
+        <% if(i === breadcrumb.length - 1) { %>
+          <%- breadcrumb[i].label %>
+        <% } else { %>
+          <a href="<%- breadcrumb[i].url %>"><%- breadcrumb[i].label %></a>
+        <% } %>
+      </li>
+      <% } %>
+    </ol>
+  </div>
+  <% } %>
+</div>
+<script type="text/javascript">
+  <% var title = breadcrumb ? _.last(breadcrumb).label : 'Template Maker' %>
+  document.title = "<%- title %>";
+</script>

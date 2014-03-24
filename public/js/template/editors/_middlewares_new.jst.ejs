@@ -1,0 +1,15 @@
+<tr>
+  <td class="type">
+    <select name="type">
+      <option></option>
+      <option value="<%- App.Components.Middlewares.ProvisioningType.chef %>"><%- App.Components.Middlewares.ProvisioningType.chef %></option>
+    </select>
+  </td>
+  <td class="id"><input type="text" name="id" value="" placeholder="ID"></td>
+  <td class="name"><input type="text" name="name" value="" placeholder="Name"></td>
+  <td class="delete" rowspan="2"></td>
+</tr>
+<tr>
+  <td class="repository-url" colspan="2"><input type="text" name="repository_url" value="" placeholder="Repository URL"></td>
+  <td class="cookbook-name"><input type="text" name="cookbook_name" value="" placeholder="Cookbook Name"></td>
+</tr>

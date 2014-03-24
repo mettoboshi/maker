@@ -1,0 +1,43 @@
+<div class="scrollable">
+  <table class="table table-bordered index-table table-condensed">
+    <thead>
+      <tr>
+        <th class="type">Type</th>
+        <th class="id">ID</th>
+        <th class="name">Name</th>
+        <th class="delete" rowspan="2">Delete</th>
+      </tr>
+      <tr>
+        <th class="repository-url" colspan="2">Repository URL</th>
+        <th class="cookbook-name">Cookbook Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%
+        var middlewares = get('middlewares');
+        for(var i = 0; i < middlewares.length; i++) {
+          var middleware = middlewares[i];
+      %>
+      <tr>
+        <td class="type">
+          <select name="type">
+            <option></option>
+            <option value="<%- App.Components.Middlewares.ProvisioningType.chef %>"><%- App.Components.Middlewares.ProvisioningType.chef %></option>
+          </select>
+        </td>
+        <td class="id"><input type="text" name="id" value="<%- middleware.id %>" placeholder="ID"></td>
+        <td class="name"><input type="text" name="name" value="<%- middleware.name %>" placeholder="Name"></td>
+        <td class="delete" rowspan="2"><span class="button glyphicon glyphicon-remove"></span></td>
+      </tr>
+      <tr>
+        <td class="repository-url" colspan="2"><input type="text" name="repository_url" value="<%- middleware.repository_url %>" placeholder="Repository URL"></td>
+        <td class="cookbook-name"><input type="text" name="cookbook_name" value="<%- middleware.cookbook_name %>" placeholder="Cookbook Name"></td>
+      </tr>
+      <% } %>
+
+      <% if(!this.options.readonly) { %>
+      <%= this.partial('editors/_middlewares_new') %>
+      <% } %>
+    </tbody>
+  </table>
+</div>

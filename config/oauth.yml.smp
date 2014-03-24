@@ -1,0 +1,6 @@
+client_id: [CHANGE TO CLIENT ID]
+client_secret: [CHANGE TO CLIENT SECRET]
+http_proxyaddr: [CHANGE TO PROXYADDR]
+http_proxyport: [CHANGE TO PROXYPORT] 
+http_proxyuser: [CHANGE TO USER NAME]
+http_proxypass: [CHANGE TO PASSWORD] 

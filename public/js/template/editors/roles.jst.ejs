@@ -1,0 +1,47 @@
+<div class="scrollable">
+  <table class="table table-bordered index-table table-condensed">
+    <thead>
+      <tr>
+        <th class="type">Type</th>
+        <th class="id">ID</th>
+        <th class="name">Name</th>
+        <th class="runlist-url">Runlist URL</th>
+        <th class="delete" rowspan="2">Delete</th>
+      </tr>
+      <tr>
+        <th class="attribute-url" colspan="2">Attribute URL</th>
+        <th class="dependencies">Dependencies</th>
+        <th class="user-input-keys">User Input Keys</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%
+        var roles = get('roles');
+        for(var i = 0; i < roles.length; i++) {
+          var role = roles[i];
+      %>
+      <tr>
+        <td class="type">
+          <select name="type">
+            <option></option>
+            <option value="<%- App.Components.Roles.ProvisioningType.chef %>"><%- App.Components.Roles.ProvisioningType.chef %></option>
+          </select>
+        </td>
+        <td class="id"><input type="text" name="id" value="<%- role.id %>" placeholder="ID"></td>
+        <td class="name"><input type="text" name="name" value="<%- role.name %>" placeholder="Name"></td>
+        <td class="runlist-url"><input type="text" name="runlist_url" value="<%- role.runlist_url %>" placeholder="Runlist URL"></td>
+        <td class="delete" rowspan="2"><span class="button glyphicon glyphicon-remove"></span></td>
+      </tr>
+      <tr>
+        <td class="attribute-url" colspan="2"><input type="text" name="attribute_url" value="<%- role.attribute_url %>" placeholder="Attribute URL"></td>
+        <td class="dependencies"><span class="button glyphicon glyphicon-stop"></span></td>
+        <td class="user-input-keys"><span class="button glyphicon glyphicon-edit"></span></td>
+      </tr>
+      <% } %>
+
+      <% if(!this.options.readonly) { %>
+      <%= this.partial('editors/_roles_new') %>
+      <% } %>
+    </tbody>
+  </table>
+</div>

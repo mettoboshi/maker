@@ -1,0 +1,53 @@
+<tr>
+  <td class="id">
+    <div class="wrapper">
+      <div class="stretchable">
+        <div class="content">
+          <select name="id" style="display: none;">
+            <option></option>
+            <% for(var j = 0; j < this.filters.length; j++) { %>
+            <option value="<%- this.filters[j].id %>"><%- this.filters[j].id %></option>
+            <% } %>
+          </select>
+          <input type="text" name="id" value="" placeholder="ID">
+        </div>
+      </div>
+      <span class="toggle-id button glyphicon glyphicon-list"></span>
+    </div>
+  </td>
+  <td class="protocol">
+    <select name="protocol">
+      <option></option>
+      <option><%- App.Components.NetworkFilters.ProtocolType.tcp %></option>
+      <option><%- App.Components.NetworkFilters.ProtocolType.udp %></option>
+      <option><%- App.Components.NetworkFilters.ProtocolType.icmp %></option>
+    </select>
+  </td>
+  <td class="port"><input type="text" name="port" value="" placeholder="Port"></td>
+  <td class="delete" rowspan="2"></td>
+</tr>
+<tr>
+  <td class="direction">
+    <select name="direction">
+      <option></option>
+      <option><%- App.Components.NetworkFilters.DirectionType.ingress %></option>
+      <option><%- App.Components.NetworkFilters.DirectionType.egress %></option>
+     </select>
+  </td>
+  <td class="opponent">
+    <select name="opponent">
+      <option></option>
+      <option value="<%- App.Components.NetworkFilters.RoutingKeywordsType.all %>"><%- App.Components.NetworkFilters.RoutingKeywordsType.all %></option>
+      <% for(var j = 0; j < this.opponent.length; j++) { %>
+      <option value="<%- this.opponent[j].value %>"><%- this.opponent[j].text %></option>
+      <% } %>
+    </select>
+  </td>
+  <td class="rule">
+    <select name="rule">
+      <option></option>
+      <option><%- App.Components.NetworkFilters.RuleActionType.allow %></option>
+      <option><%- App.Components.NetworkFilters.RuleActionType.deny %></option>
+    </select>
+  </td>
+</tr>

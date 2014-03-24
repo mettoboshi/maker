@@ -1,0 +1,20 @@
+<tr>
+  <td class="id"><input type="text" name="id" value="" placeholder="ID"></td>
+  <td class="destination">
+    <select name="destination">
+      <option value="<%- App.Components.Routing.RoutingKeywordsType.all %>"><%- App.Components.Routing.RoutingKeywordsType.all %></option>
+      <% for(var j = 0; j < this.networks.length; j++) { %>
+      <option value="<%- this.networks[j].value %>"><%- this.networks[j].text %></option>
+      <% } %>
+    </select>
+  </td>
+  <td class="target">
+    <select name="target">
+      <option value="<%- App.Components.Routing.RoutingKeywordsType.InternetGateway %>"><%- App.Components.Routing.RoutingKeywordsType.InternetGateway %></option>
+      <% for(var j = 0; j < this.networks.length; j++) { %>
+      <option value="<%- this.networks[j].value %>"><%- this.networks[j].text %></option>
+      <% } %>
+    </select>
+  </td>
+  <td class="delete"></td>
+</tr>

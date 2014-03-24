@@ -1,0 +1,33 @@
+<div class="scrollable">
+  <table class="table table-bordered index-table table-condensed">
+    <thead>
+      <tr>
+        <th class="Route">Route</th>
+        <th class="delete">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%
+        var routes = get('routes');
+        for(var i = 0; i < routes.length; i++) {
+          var route = routes[i];
+      %>
+      <tr>
+        <td class="reference">
+          <select name="reference">
+            <option></option>
+            <% for(var j = 0; j < this.routes.length; j++) { %>
+            <option value="<%- this.routes[j].id %>"><%- this.routes[j].id %></option>
+            <% } %>
+          </select>
+        </td>
+        <td class="delete"><span class="button glyphicon glyphicon-remove"></span></td>
+      </tr>
+      <% } %>
+
+      <% if(!this.options.readonly) { %>
+      <%= this.partial('editors/_network_routes_new') %>
+      <% } %>
+    </tbody>
+  </table>
+</div>

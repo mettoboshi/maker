@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:ccm="http://cloudconductor.org/namespaces/ccm"
+  targetNamespace="http://cloudconductor.org/namespaces/ccm"
+  elementFormDefault="qualified">
+
+  <xs:element name="Editor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Nodes" type="ccm:NodesType" minOccurs="0"/>
+        <xs:element name="Links" type="ccm:LinksType" minOccurs="0"/>
+        <xs:element name="Comments" type="ccm:CommentsType" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+
+    <!-- refとIDの対応関係 -->
+    <xs:key name="NodeId">
+      <xs:selector xpath="ccm:Nodes/ccm:Node"/>
+      <xs:field xpath="@id"/>
+    </xs:key>
+
+    <xs:keyref name="LinkSource-Node" refer="ccm:NodeId">
+      <xs:selector xpath="ccm:Links/ccm:Link/ccm:Source"/>
+      <xs:field xpath="@ref"/>
+    </xs:keyref>
+
+    <xs:keyref name="LinkTarget-Node" refer="ccm:NodeId">
+      <xs:selector xpath="ccm:Links/ccm:Link/ccm:Target"/>
+      <xs:field xpath="@ref"/>
+    </xs:keyref>
+
+    <xs:keyref name="Comment-Node" refer="ccm:NodeId">
+      <xs:selector xpath="ccm:Comments/ccm:Comment"/>
+      <xs:field xpath="@ref"/>
+    </xs:keyref>
+  </xs:element>
+
+  <xs:complexType name="NodesType">
+    <xs:sequence>
+      <xs:element name="Node" minOccurs="0" maxOccurs="unbounded" type="ccm:NodeParameter" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LinksType">
+    <xs:sequence>
+      <xs:element name="Link" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="Source">
+              <xs:complexType>
+                <xs:all>
+                  <xs:element name="Selector" type="xs:string" minOccurs="0" />
+                </xs:all>
+                 <xs:attribute name="ref" use="required" type="ccm:IdType"/>
+              </xs:complexType>
+             </xs:element>
+            <xs:element name="Target">
+              <xs:complexType>
+                <xs:all>
+                  <xs:element name="Selector" type="xs:string" minOccurs="0" />
+                </xs:all>
+                 <xs:attribute name="ref" use="required" type="ccm:IdType"/>
+              </xs:complexType>
+             </xs:element>
+            <xs:element name="Vertices" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="Vertice" maxOccurs="unbounded">
+                    <xs:complexType>
+                      <xs:all>
+                        <xs:element name="x" type="xs:float" />
+                        <xs:element name="y" type="xs:float" />
+                      </xs:all>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+             </xs:element>
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CommentsType">
+    <xs:sequence>
+      <xs:element name="Comment" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="x" type="xs:float" />
+            <xs:element name="y" type="xs:float" />
+            <xs:element name="z" type="xs:nonNegativeInteger" />
+            <xs:element name="width" type="xs:positiveInteger" />
+            <xs:element name="height" type="xs:positiveInteger" />
+            <xs:element name="text" type="xs:string" />
+          </xs:all>
+          <xs:attribute name="ref" type="ccm:IdType"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="IdType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[\w\d_-]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Nodeに対するParameterの型定義 -->
+  <xs:complexType name="NodeParameter">
+    <xs:sequence>
+      <xs:element name="x" type="xs:float"/>
+      <xs:element name="y" type="xs:float"/>
+      <xs:element name="z" type="xs:nonNegativeInteger"/>
+    </xs:sequence>
+    <xs:attribute name="id" use="required" type="ccm:IdType"/>
+  </xs:complexType>
+
+  <xs:complexType name="Infrastructure">
+    <xs:complexContent>
+      <xs:extension base="ccm:NodeParameter">
+        <xs:sequence>
+          <xs:element name="width" type="xs:positiveInteger"/>
+          <xs:element name="height" type="xs:positiveInteger"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Network">
+    <xs:complexContent>
+      <xs:extension base="ccm:NodeParameter">
+        <xs:sequence>
+          <xs:element name="children" type="xs:nonNegativeInteger"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Machine">
+    <xs:complexContent>
+      <xs:extension base="ccm:NodeParameter" />
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Volume">
+    <xs:complexContent>
+      <xs:extension base="ccm:NodeParameter" />
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="Router">
+    <xs:complexContent>
+      <xs:extension base="ccm:NodeParameter" />
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

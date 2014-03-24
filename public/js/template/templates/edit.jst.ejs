@@ -1,0 +1,14 @@
+<%
+  var breadcrumb = [];
+  breadcrumb.push({ url: "#templates", label: i18n.t("template.index.template_list") });
+  if(typeof id !== "undefined") {
+    breadcrumb.push({ url: "#templates/" + id, label: name });
+    breadcrumb.push({ url: "#templates/" + id + "/edit", label: i18n.t("template.edit.edit_template") });
+    } else {
+      breadcrumb.push({ url: "#templates/new", label: i18n.t("template.new.new_template") });
+    }
+%>
+<%= this.partial('common/menu', { breadcrumb: breadcrumb })%>
+<%= this.partial('common/error') %>
+<div class="editor editor-with-header">
+</div>

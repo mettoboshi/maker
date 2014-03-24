@@ -1,0 +1,24 @@
+<div>
+  <table>
+    <tbody>
+      <tr>
+        <th><label for="volume_id">ID: </label></th>
+        <td><input type="input" id="volume_id" value="<%- volume_id %>"></td>
+      </tr>
+      <tr>
+        <th><label for="size">Size: </label></th>
+        <td><input type="input" id="size" value="<%- size %>"></td>
+      </tr>
+      <tr>
+        <th><label for="iops">IOPS: </label></th>
+        <td>
+          <select id="iops">
+            <option><%- joint.shapes.cc.Volume.Type.high %></option>
+            <option><%- joint.shapes.cc.Volume.Type.low %></option>
+          </select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

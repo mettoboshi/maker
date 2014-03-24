@@ -1,0 +1,110 @@
+{
+  "common": {
+    "navigation": {
+      "template": "Template",
+      "login": "Login",
+      "logout": "Logout"
+    },
+    "button": {
+      "view": "View",
+      "new": "New",
+      "edit": "Edit",
+      "save": "Save",
+      "cancel": "cancel",
+      "back": "Back"
+    },
+    "header": {
+      "import": "Import",
+      "save": "Save",
+      "undo": "Undo",
+      "redo": "Redo",
+      "top": "Top",
+      "front": "Front",
+      "rear": "Rear",
+      "bottom": "Bottom",
+      "zoom_in": "Zoom In",
+      "zoom_out": "Zoom Out",
+      "toolbox": "Toolbox",
+      "detail": "Detail",
+      "xml_viewer": "XMLViewer",
+      "parameter": "Parameter",
+      "select_cloud_entry_point": "Select Cloud Entry Point",
+      "middlewares": "Middlewares",
+      "roles": "Roles",
+      "property": "Property",
+      "help": "Help"
+    },
+    "dialog": {
+      "not_selected": "Element is not selected",
+      "selected_multiple_elements": "You can not edit when you have selected multiple elements",
+      "toolbox": "Toolbox",
+      "detail": "Detail",
+      "xml_viewer": "XMLViewer",
+      "parameter": "Parameter",
+      "select_cloud_entry_point": "Select Cloud Entry Point",
+      "middlewares": "Middlewares",
+      "roles": "Roles",
+      "property": "Property",
+      "dependencies": "Dependencies",
+      "user_input_keys": "User Input Keys",
+      "network_filters": "Network Filters",
+      "network_routes": "Network Routes",
+      "machine_filters": "Machine Filters",
+      "monitorings": "Monitorings",
+      "monitoring_templates": "Monitoring Templates",
+      "routing_table": "Routing Table",
+      "nats": "NATs",
+      "save_template": "Save Template"
+    }
+  },
+  "main": {
+    "index": {
+      "title": "Template Maker",
+      "subtitle_1": "Template maker can create and manage pattern of system that can provisioning on cloud conductor.",
+      "subtitle_2": "",
+      "template_list": "Template List",
+      "template_description": ""
+    }
+  },
+  "template": {
+    "index": {
+      "template_list": "Template List",
+      "id": "ID",
+      "template_name": "Template Name",
+      "owner_name": "Owner Name",
+      "description": "Description"
+    },
+    "show": "",
+    "new": {
+      "new_template": "New Template"
+    },
+    "edit": {
+      "edit_template": "Edit Templete"
+    },
+    "toolbox": {
+      "cursor": "Cursor",
+      "add_infrastructure": "Add Infrastructure",
+      "add_link": "Add Link",
+      "add_network": "Add Network",
+      "add_machine_group": "Add Machine Group",
+      "add_volume": "Add Volume",
+      "add_monitor_machine_group": "Add Monitor Machine Group",
+      "add_router": "Add Router"
+    },
+    "validate": {
+      "adapter": {
+        "required": "Adapter is Required."
+      },
+      "repository": {
+        "required": "Repository is Required."
+      },
+      "revision": {
+        "required": "Revision is Required."
+      },
+      "path": {
+        "required": "Path is Required.",
+        "pattern": "Path must match pattern \"*.xml\""
+      }
+    }
+  }
+}

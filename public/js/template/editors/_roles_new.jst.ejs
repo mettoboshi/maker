@@ -1,0 +1,17 @@
+<tr>
+  <td class="type">
+    <select name="type">
+      <option></option>
+      <option value="<%- App.Components.Roles.ProvisioningType.chef %>"><%- App.Components.Roles.ProvisioningType.chef %></option>
+    </select>
+  </td>
+  <td class="id"><input type="text" name="id" value="" placeholder="ID"></td>
+  <td class="name"><input type="text" name="name" value="" placeholder="Name"></td>
+  <td class="runlist-url"><input type="text" name="runlist_url" value="" placeholder="Runlist URL"></td>
+  <td class="delete" rowspan="2"></td>
+</tr>
+<tr>
+  <td class="attribute-url" colspan="2"><input type="text" name="attribute_url" value="" placeholder="Attribute URL"></td>
+  <td class="dependencies"></td>
+  <td class="user-input-keys"></td>
+</tr>

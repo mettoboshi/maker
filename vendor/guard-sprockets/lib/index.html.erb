@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<% stylesheet_files.each do |file| %>
+<link type="text/css" rel="stylesheet" href="<%= file %>">
+<% end %>
+</head>
+<body>
+<div class="__container">
+</div>
+<!-- Source files -->
+<% javascript_files.each do |file| %>
+<script type="text/javascript" src="<%= file %>"></script>
+<% end %>
+</body>
+</html>

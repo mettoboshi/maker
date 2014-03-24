@@ -1,0 +1,26 @@
+# Ignore log files
+log
+
+# Ignore temporary files
+tmp
+
+# Ignore autogenerate files
+public/index.html
+public/js/all.js
+public/css/all.css
+
+# Ignore cache files
+.sass-cache
+
+# Ignore database file
+db/*.sqlite3
+
+# Ignore sensitive setting files
+config/proxy.yml
+config/oauth.yml
+
+# Ignore installed library by npm
+node_modules
+
+# Ignore installed library by bower
+public/js/ext

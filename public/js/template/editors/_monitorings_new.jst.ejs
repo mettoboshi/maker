@@ -1,0 +1,12 @@
+<tr>
+  <td class="reference">
+    <select name="reference">
+      <option></option>
+      <% for(var j = 0; j < this.monitorings.length; j++) { %>
+      <option value="<%- this.monitorings[j].id %>"><%- this.monitorings[j].name %></option>
+      <% } %>
+    </select>
+  </td>
+  <td class="delete"></td>
+</tr>
+

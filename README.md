@@ -106,6 +106,6 @@ Contact
 
 For more information: <http://cloudconductor.org/>
 
-Report issues and requests: <https://github.com/maker/issues>
+Report issues and requests: <https://github.com/cloudconductor/maker/issues>
 
 Send feedback to: <ccndctr@gmail.com>

@@ -108,4 +108,4 @@ For more information: <http://cloudconductor.org/>
 
 Report issues and requests: <https://github.com/cloudconductor/issues>
 
-Send feedback to: <cloudconductor@tis.co.jp>
+Send feedback to: <ccndctr@gmail.com>

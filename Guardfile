@@ -64,7 +64,7 @@ end
 
 # automatically generate index.html
 require './vendor/guard-sprockets/lib/guard/sprockets'
-guard :sprockets, :root => File.join(File.dirname(__FILE__), "public"), :concat => true, :excludes => [%r(js/ext), %r(css/joint)] do
+guard :sprockets, :root => File.join(File.dirname(__FILE__), "public"), :concat => false, :excludes => [%r(js/ext), %r(css/joint)] do
   ignore(%r{public/js/all.js})
   ignore(%r{public/css/all.css})
   watch(%r{.*\.js$})

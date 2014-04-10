@@ -6,6 +6,7 @@ describe("App.Routers.Main", function() {
 
   afterEach(function() {
     App.Session.logout();
+    location.hash = "";
   });
 
   describe("#success", function() {

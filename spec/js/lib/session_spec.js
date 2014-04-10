@@ -27,26 +27,27 @@ describe("Session", function() {
 
     it("は現在のURLをCookieに保存する", function() {
       var spy = spyOn(location, "assign").andCallFake(function() {});
-      location.hash = '#main';
 
       //  Chromeではlocation.assignの上書きが不可能なため、テストをスキップする
-      if(spy === location.assign) {
-        App.Session.login();
-        expect($.cookie('back_hash')).toEqual('main');
-      }
+      if(spy !== location.assign) { return; }
+
+      location.hash = '#main';
+      App.Session.login();
+      expect($.cookie('back_hash')).toEqual('main');
     });
 
     it("は現在のURLが#loginの場合、戻り先URLとして#mainをCookieに保存する", function() {
       var spy = spyOn(location, "assign").andCallFake(function() {});
+
+      //  Chromeではlocation.assignの上書きが不可能なため、テストをスキップする
+      if(spy !== location.assign) { return; }
+
       Backbone.history.stop();
       location.hash = '#login';
       Backbone.history.start();
 
-      //  Chromeではlocation.assignの上書きが不可能なため、テストをスキップする
-      if(spy === location.assign) {
-        App.Session.login();
-        expect($.cookie('back_hash')).toEqual('main');
-      }
+      App.Session.login();
+      expect($.cookie('back_hash')).toEqual('main');
     });
   });
 
